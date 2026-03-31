@@ -17,6 +17,12 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
+      - name: Debug
+        run: |
+          pwd
+          ls -la
+          cat .github/workflows/*.yml
+
       - name: Run app
         run: dotnet run --project ./APOD.csproj
         env:
