@@ -1,8 +1,8 @@
 ﻿using System.Text.Json.Nodes;
 
-string tokenNasa = "xx";
-string tokenBotTelegram = "xxx";
-string chatId = "xxxx";
+string tokenNasa = Environment.GetEnvironmentVariable("NASA_TOKEN");
+string tokenBotTelegram = Environment.GetEnvironmentVariable("TELEGRAM_TOKEN");
+string chatId = Environment.GetEnvironmentVariable("CHAT_ID_TOKEN");
 
 HttpClient http = new();
 
