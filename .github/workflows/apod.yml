@@ -18,7 +18,7 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Run app
-        run: dotnet run --project src/NomeDoProjeto
+        run: dotnet run --project APOD.csproj
         env:
           NASA_TOKEN: ${{ secrets.NASA_TOKEN }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
