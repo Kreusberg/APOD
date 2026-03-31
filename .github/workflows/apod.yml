@@ -20,7 +20,6 @@ jobs:
       - name: Run app
         run: dotnet run --project APOD/APOD.csproj
         env:
-        env:
           NASA_TOKEN: ${{ secrets.NASA_TOKEN }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CHAT_ID_TOKEN: ${{ secrets.CHAT_ID_TOKEN }}
