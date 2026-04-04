@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APOD", "APOD.csproj", "{F27B1EE7-4BD2-BD6C-10C1-33A24C34FE70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F27B1EE7-4BD2-BD6C-10C1-33A24C34FE70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F27B1EE7-4BD2-BD6C-10C1-33A24C34FE70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F27B1EE7-4BD2-BD6C-10C1-33A24C34FE70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F27B1EE7-4BD2-BD6C-10C1-33A24C34FE70}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9B8FF48B-F5BB-4E6C-844F-7E40750932C9}
+	EndGlobalSection
+EndGlobal
