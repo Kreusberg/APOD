@@ -1,4 +1,6 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Text.Json;
 using System.Text.Json.Nodes;
 
 namespace teste
@@ -48,22 +50,25 @@ namespace teste
             string tokenBotTelegram = Environment.GetEnvironmentVariable("TELEGRAM_TOKEN") ?? "";
             string chatId = Environment.GetEnvironmentVariable("CHAT_ID_TOKEN") ?? "";
 
-            var urlTelegram = $"https://api.telegram.org/bot{tokenBotTelegram}/sendPhoto";
+            bool isVideo = url.Contains("mp4");
+            string method = isVideo ? "sendVideo" : "sendPhoto";
+
+            var urlTelegram = $"https://api.telegram.org/bot{tokenBotTelegram}/{method}";
 
             FormUrlEncodedContent content = new(new[]
             {
                 new KeyValuePair<string, string>("chat_id", chatId),
-                new KeyValuePair<string, string>("photo", url),
+                new KeyValuePair<string, string>(isVideo ? "video" : "photo", url),
                 new KeyValuePair<string, string>("caption", explanation),
             });
 
-            await http.PostAsync(urlTelegram, content);
+            var aa = await http.PostAsync(urlTelegram, content);
         }
 
         public static async Task<string> GetTranslatedExplanation(string explanation)
         {
             string googleAiToken = Environment.GetEnvironmentVariable("GOOGLE_AI_TOKEN") ?? "";
-            string UrlGoogleAI = $"https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash-lite:generateContent?key={googleAiToken}";
+            string UrlGoogleAI = $"https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key={googleAiToken}";
 
             var obj = new
             {
