@@ -29,3 +29,4 @@ jobs:
           NASA_TOKEN: ${{ secrets.NASA_TOKEN }}
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CHAT_ID_TOKEN: ${{ secrets.CHAT_ID_TOKEN }}
+          GOOGLE_AI_TOKEN: ${{ secrets.GOOGLE_AI_TOKEN }}
