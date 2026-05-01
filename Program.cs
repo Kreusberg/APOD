@@ -1,6 +1,5 @@
-﻿using System.Text.Json;
+﻿using APOD;
 using System.Text.Json.Nodes;
-using teste;
 
 string response = await Util.GetApodResponse();
 

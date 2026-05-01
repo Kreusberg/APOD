@@ -1,9 +1,7 @@
-﻿using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Nodes;
 
-namespace teste
+namespace APOD
 {
     public class Util
     {
@@ -16,33 +14,6 @@ namespace teste
 
             string UrlAPOD = $"https://api.nasa.gov/planetary/apod?api_key={tokenNasa}";
             return await http.GetStringAsync(UrlAPOD);
-        }
-
-        public static string CreateGeminiPrompt(string response)
-        {
-            JsonNode jsonString = JsonNode.Parse(response) ?? "";
-
-            string explanation = jsonString["explanation"]?.ToString() ?? "";
-            string url = jsonString["url"]?.ToString() ?? "";
-
-            var obj = new
-            {
-                contents = new[]
-                {
-                    new
-                    {
-                        parts = new[]
-                        {
-                            new
-                            {
-                                text = $"{explanation} - Dado este texto, traduza-o para português (brasileiro). Sua resposta deve conter somente a tradução, sem demais comentários."
-                            }
-                        }
-                    }
-                }
-            };
-
-            return JsonSerializer.Serialize(obj);
         }
 
         public static async Task SendTelegramMessage(string url, string explanation)
@@ -92,7 +63,7 @@ namespace teste
                 }
             };
 
-            StringContent googleJson = new(JsonSerializer.Serialize(obj), System.Text.Encoding.UTF8, "application/json");
+            StringContent googleJson = new(JsonSerializer.Serialize(get), System.Text.Encoding.UTF8, "application/json");
 
             HttpResponseMessage responseGoogleAI = await http.PostAsync(UrlGoogleAI, googleJson);
 
