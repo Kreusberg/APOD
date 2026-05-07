@@ -33,7 +33,7 @@ namespace APOD
                 new KeyValuePair<string, string>("caption", explanation),
             });
 
-            var aa = await http.PostAsync(urlTelegram, content);
+            await http.PostAsync(urlTelegram, content);
         }
 
         public static async Task<string> GetTranslatedExplanation(string explanation)
@@ -63,7 +63,7 @@ namespace APOD
                 }
             };
 
-            StringContent googleJson = new(JsonSerializer.Serialize(get), System.Text.Encoding.UTF8, "application/json");
+            StringContent googleJson = new(JsonSerializer.Serialize(obj), System.Text.Encoding.UTF8, "application/json");
 
             HttpResponseMessage responseGoogleAI = await http.PostAsync(UrlGoogleAI, googleJson);
 
